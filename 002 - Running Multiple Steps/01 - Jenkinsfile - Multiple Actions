@@ -1,3 +1,9 @@
+def repeat(val, x=10){
+  for(i in 0..<x){
+    println val
+  }
+}
+
 pipeline {
     agent { 
 		docker { 
@@ -5,5 +11,10 @@ pipeline {
 		}
 	}
     stages {
+    	stage('build') {
+            steps {
+	    	repeat
+            }
+        }
     }
 }
