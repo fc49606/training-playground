@@ -1,7 +1,5 @@
-def repeat(val, x=10){
-  for(i in 0..<x){
-    println val
-  }
+def repeat(){
+  sh  'date >> text.txt'
 }
 
 pipeline {
@@ -13,7 +11,9 @@ pipeline {
     stages {
     	stage('build') {
             steps {
-	    	repeat
+	    	repeat()
+		sh 'sleep 10s'
+		repeat()
             }
         }
     }
