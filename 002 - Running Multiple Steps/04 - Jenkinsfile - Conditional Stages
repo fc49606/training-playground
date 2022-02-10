@@ -1,21 +1,25 @@
 pipeline {
-	parameters { choice(name: 'CHOICES', choices: ['BUILD', 'TEST'], description: '') }
-    agent { 
-		docker { 
-			image 'alpine:latest' 
-		}
-	}
-    stages {
-    	stage('BUILD') {
-            when { environment name: 'CHOICES', value: 'BUILD' }
-	    steps {
-	    	echo 'build'}
-        }
-	stage('TEST') {
-            when { environment name: 'CHOICES', value: 'TEST' }
-	    steps {
-	    	echo 'test'}
-        }
-	    }
-    }
+parameters{
+choice(name: 'CHOICE', choices: ['BUILD', 'TEST'], description: 'Pick a stage')
+}
+agent {
+docker {
+image 'alpine:latest'
+}
+}
+stages {
+
+stage ('BUILD'){
+when { environment name: 'CHOICE', value: 'BUILD' }
+steps{
+echo "$CHOICE"
+}
+}
+stage ('TEST'){
+when { environment name: 'CHOICE', value: 'TEST' }
+steps{
+echo "$CHOICE"
+}
+}
+}
 }
