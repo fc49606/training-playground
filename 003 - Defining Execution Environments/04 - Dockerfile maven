@@ -1,1 +1,1 @@
-docker 'maven:3.8.1-adoptopenjdk-11'
+RUN docker 'maven:3.8.1-adoptopenjdk-11'
