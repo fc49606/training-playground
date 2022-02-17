@@ -2,10 +2,10 @@ pipeline {
     agent { 
 	    dockerfile {
 		filename '02 - Dockerfile - Dockerfile Agent'
-		dir 'build'
+		dir '003 - Defining Execution Environments/02 - Dockerfile - Dockerfile Agent'
 		label 'my-defined-label'
-		additionalBuildArgs  '--build-arg version=1.0.2'
-		args '-v /tmp:/tmp'
+		\\ additionalBuildArgs  '--build-arg version=1.0.2'
+		\\ args '-v /tmp:/tmp'
     	}
 	}
     stages {
