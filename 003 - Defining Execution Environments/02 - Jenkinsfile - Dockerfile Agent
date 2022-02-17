@@ -4,7 +4,7 @@ pipeline {
 		filename '02 - Dockerfile - Dockerfile Agent'
 		dir '003 - Defining Execution Environments/'
 		// label 'my-defined-label'
-		additionalBuildArgs  'Value for execution'
+		additionalBuildArgs "Value for execution"
 		// args '-v /tmp:/tmp'
     	}
 	}
